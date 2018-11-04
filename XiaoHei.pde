@@ -1,12 +1,12 @@
 /**
-* <p>Title: 墨白 ElementMo</p>  
-* <p>Description: Processing骚操作第一期</p>  
-* <p>Copyright: Copyright (c) 2018</p>  
-* <p>Company: elementmo.github.io</p>  
-* @author elementmo  
-* @date 2018.11.2  
-* @version 1.0  
-*/
+ * <p>Title: 墨白 ElementMo</p>  
+ * <p>Description: Processing骚操作第一期</p>  
+ * <p>Copyright: Copyright (c) 2018</p>  
+ * <p>Company: elementmo.github.io</p>  
+ * @author elementmo  
+ * @date 2018.11.2  
+ * @version 1.0  
+ */
 import java.awt.*;
 import javax.swing.JFrame;
 import processing.awt.PSurfaceAWT;
@@ -21,7 +21,6 @@ void setup()
   fullScreen();
   noStroke();
   frameRate(60);
-  strokeCap(ROUND);
 
   final PSurfaceAWT awtSurface = (PSurfaceAWT)surface;
   final PSurfaceAWT.SmoothCanvas smoothCanvas = (PSurfaceAWT.SmoothCanvas)awtSurface.getNative();
@@ -63,14 +62,22 @@ void drawFace()
   ellipse(50, 70, 50, 60);
   ellipse(100, 70, 50, 60);
 
-  stroke(87, 54, 36);
-  strokeWeight(3);
-  fill(45, 124, 155);
+  noStroke();
   beginShape();
+  fill(45, 124, 155);
   vertex(68, 99);
   vertex(75, 109);
   vertex(82, 99);
   endShape(CLOSE);
+
+  stroke(87, 54, 36);
+  strokeWeight(3);
+  strokeCap(ROUND);
+  line(68, 99, 75, 109);
+  line(75, 109, 82, 99);
+  line(82, 99, 68, 99);
+
+
 
   fill(0);
   drawEye(50, 70, relative.copy());

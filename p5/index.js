@@ -1,5 +1,5 @@
 /**
- * This code is the p5 version demo, port from processing source.
+ * This code is the p5 version demo, from processing source.
  * Just follow souce code.
  *
  * @author Rabbit
@@ -18,7 +18,6 @@ export default function sketch(p) {
     p.fullscreen()
     p.noStroke()
     p.frameRate(60)
-    p.strokeCap(p.ROUND)
     createShape()
     canvas = p.createCanvas(150, 150)
     canvas.style('clipPath', `url(#cross)`)
@@ -46,15 +45,19 @@ export default function sketch(p) {
     p.fill(255, 255, 200)
     p.ellipse(50, 70, 50, 60)
     p.ellipse(100, 70, 50, 60)
-
-    p.stroke(87, 54, 36)
-    p.strokeWeight(3)
-    p.fill(45, 124, 155)
+    p.noStroke()
     p.beginShape()
+    p.fill(45, 124, 155)
     p.vertex(68, 99)
     p.vertex(75, 109)
     p.vertex(82, 99)
     p.endShape(p.CLOSE)
+    p.stroke(87, 54, 36)
+    p.strokeWeight(3)
+    p.strokeCap(p.ROUND)
+    p.line(68, 99, 75, 109)
+    p.line(75, 109, 82, 99)
+    p.line(82, 99, 68, 99)
 
     p.fill(0)
     drawEye(50, 70, relative.copy())
@@ -142,7 +145,6 @@ export default function sketch(p) {
 `
     document.body.appendChild(shape)
   }
-
 
   p.setup = setup
   p.draw = draw
